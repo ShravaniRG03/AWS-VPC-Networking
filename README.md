@@ -8,7 +8,6 @@ This project demonstrates how to implement VPC Peering using Amazon Web Services
 
 ## 🥳 Prerequisites
 - AWS Account
-- IAM user with sufficient permissions
 - Elastic IP allocation knowledge
 - Familiarity with AWS Management Console
 
@@ -57,9 +56,6 @@ This project demonstrates how to implement VPC Peering using Amazon Web Services
 1. SSH into EC2 Instance 1 using Instance Connect or an Elastic IP.
 2. Run the `ping` command to test the connection with the second instance:
 ping <private-ip-of-instance-2>
-
-markdown
-Copy code
 3. Verify successful connectivity.
 
 ## 🚨 Troubleshooting
