@@ -74,3 +74,9 @@ ping <private-ip-of-instance-2>
 - [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
 - [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
 - [AWS Elastic IP Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses.html)
+
+## 📜 License  
+
+This project is **open-source** and available under the [MIT License](LICENSE).  
+
+⭐ **If you found this project helpful, give it a star!** ⭐  
