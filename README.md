@@ -1,79 +1,70 @@
-# AWS VPC Peering
+# 🌐 AWS Networking Projects Series
 
-## 🌍 Overview
-This project demonstrates how to implement VPC Peering using Amazon Web Services (AWS). The goal is to create a secure and efficient connection between two VPCs for seamless communication without traversing the public internet.
+This repository contains a series of hands-on projects focused on building, configuring, and securing AWS Virtual Private Clouds (VPCs). Each project is documented in detail with step-by-step guidance in PDF format.
 
-## 🏗️ Architecture
-<img src="Architecture%20Diagram.png" alt="VPC Peering Architecture Diagram" width="500"/>
+## 📚 Project List
 
-## 🥳 Prerequisites
-- AWS Account
-- Elastic IP allocation knowledge
-- Familiarity with AWS Management Console
+1. **[Building a VPC](./1%20-%20Building%20a%20VPC.pdf)**
+   - Learn how to create a custom Virtual Private Cloud from scratch.
+   - Covers CIDR blocks, subnets, and VPC setup fundamentals.
 
-## 🛠️ Setup Instructions
+2. **[VPC Traffic Flow & Security](./2%20-%20VPC%20Traffic%20Flow%20%26%20Security.pdf)**
+   - Dive into routing tables, security groups, and network ACLs.
+   - Understand how traffic moves within your VPC and how to secure it.
 
-### Step 1: Set Up VPCs
-1. Use the AWS VPC Launch Wizard to deploy two VPCs.
-2. Assign unique CIDR blocks:
-   - VPC 1: `10.1.0.0/16`
-   - VPC 2: `10.2.0.0/16`
-3. Create one public subnet in each VPC.
+3. **[Creating a Private Subnet](./3%20-%20Creating%20a%20Private%20Subnet.pdf)**
+   - Set up private subnets for isolating internal resources.
+   - Focused on security and restricting direct internet access.
+   
+4. **[Launching VPC Resources](./4%20-%20Launching%20VPC%20Resources.pdf)**
+   - Deploy EC2 instances into your VPC, and configure roles, keys, and access.
 
-### Step 2: Create a VPC Peering Connection
-1. Navigate to the VPC Dashboard in AWS.
-2. Select "Create Peering Connection."
-3. Specify the **Requester** and **Accepter** VPCs.
-4. Accept the peering connection request.
+5. **[Testing VPC Connectivity](./5%20-%20Testing%20VPC%20Connectivity.pdf)**
+   - Test connectivity across public and private subnets using ping, SSH, and other tools.
 
-### Step 3: Update Route Tables
-1. Navigate to the Route Tables section in the VPC Dashboard.
-2. Add a route in each VPC's route table with:
-   - Destination: The CIDR block of the other VPC.
-   - Target: The created VPC Peering Connection.
+6. **[VPC Peering](./6%20-%20VPC%20Peering.pdf)**
+   - Learn how to connect two VPCs securely using peering connections.
+   - Validate routes and access between VPCs in different regions/accounts.
 
-### Step 4: Launch EC2 Instances
-1. Launch an EC2 instance in the public subnet of each VPC.
-2. Ensure both instances have security groups configured to allow necessary traffic.
+---
 
-### Step 5: Test Connectivity
-1. Use **EC2 Instance Connect** to access the first EC2 instance.
-2. From EC2 Instance 1, ping the private IPv4 address of EC2 Instance 2 to validate the peering connection.
+## 🚀 Technologies Used
 
-## 📝 Configuration Details
+- **AWS VPC**
+- **EC2 Instances**
+- **Route Tables**
+- **Security Groups & NACLs**
+- **Internet Gateway**
+- **VPC Peering**
+- **AWS Console & CLI**
 
-### VPC Configuration
-- **VPC 1 CIDR Block:** `10.1.0.0/16`
-- **VPC 2 CIDR Block:** `10.2.0.0/16`
+---
 
-### Security Group Configuration
-- Allow **ICMP traffic** for ping tests between the two VPCs.
+## 📌 Prerequisites
 
-### Elastic IPs
-- Elastic IPs were associated with EC2 instances for public IPv4 address allocation.
+- Basic understanding of networking concepts (CIDR, routing, etc.)
+- AWS Free Tier account
+- IAM user with sufficient permissions
 
-## 🍴 Usage Instructions
-1. SSH into EC2 Instance 1 using Instance Connect or an Elastic IP.
-2. Run the `ping` command to test the connection with the second instance:
-ping <private-ip-of-instance-2>
-3. Verify successful connectivity.
+---
 
-## 🚨 Troubleshooting
-
-### Common Issues
-- **Unable to connect to an EC2 instance:**
-- Ensure the instance has a public IPv4 address (Elastic IP) and is in a public subnet.
-- **Ping test fails:**
-- Verify the security group rules allow inbound ICMP traffic from the other VPC.
-
-### Elastic IP Setup
-1. Allocate an Elastic IP from the AWS console.
-2. Associate it with the EC2 instance in the public subnet.
 
 ## 📚 Additional Resources
-- [AWS VPC Documentation](https://docs.aws.amazon.com/vpc/)
-- [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
-- [AWS Elastic IP Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses.html)
+
+- [Amazon VPC Overview](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
+
+- [Creating a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/creating-a-vpc.html)
+
+- [Subnet Basics](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html)
+
+- [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html)
+
+- [Security Groups for Your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html)
+
+- [Network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html)
+
+- [VPC Peering Guide](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
+
 
 ## 📜 License  
 
